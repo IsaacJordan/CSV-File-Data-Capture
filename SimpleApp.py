@@ -3,37 +3,37 @@ import sys
 encendido = bool(True)
 
 def leer():
-    #Preguntar el nombre del archivo
-    nombre = input("Ingrese el nombre del archivo: ")
+    #Ask for name of the document
+    nombre = input("Name of the file: ")
     print("\n")
-    #Leer archivo para verificacion
+    #Read document
     with open(nombre+'.csv', 'r', newline='') as f:
          print(f.read())
 
     
 
 def crear():
-    #Preguntar el nombre del archivo
-    nombre = input("Ingrese el nombre del archivo: ")
+     #Ask for name of the document
+    nombre = input("Name of the file: ")
 
-    #Crear o abrir archivo
+    #Open or create the document by name
     with open(nombre+'.csv', 'a+', newline='\n') as file:
         writer = csv.writer(file)
 
-        #Preguntar si es un archivo nuevo
-        resp = input("Es un archivo nuevo? (y/n): ")
+        #Ask if the document is new
+        resp = input("Creating a new document? (y/n): ")
 
         if resp == "y":
             #Tags default
-            default = [["Nombre", "Monto"]]
+            default = [["Name", "Price"]]
             writer.writerows(default)
     
-        ventas = int(input("Ventas del dia: "))
+        ventas = int(input("Number of sales: "))
     
         i=1
         while i <= ventas:
-            cliente = input("Nombre del cliente: ")
-            monto = float(input("Monto de venta (MXN): "))
+            cliente = input("Name of client: ")
+            monto = float(input("Selling price (dlls): "))
             entrada = [[cliente, monto]]
             writer.writerows(entrada)
             i+=1    
@@ -48,9 +48,9 @@ def menu():
     print("**********Python Software Test**********")
     print("****************************************")
     print("\n")
-    print("1. Crear o abrir documento.")
-    print("2. Leer Documento")
-    print("3. Apagar")
+    print("1. Creat or open a document.")
+    print("2. Read Document")
+    print("3. Exit")
     
     var = int(input(": "))
 
